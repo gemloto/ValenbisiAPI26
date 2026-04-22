@@ -49,11 +49,16 @@ public class ValenbisiAPI26T1v2_1 {
 
                     JSONObject attributes = estacion.getJSONObject("attributes");
                     JSONObject geometry = estacion.getJSONObject("geometry");
+                    
 
-                    String direccion = attributes.optString("direccion", "Sin dirección");
-                    int bicicletasDisponibles = attributes.optInt("bicis_disponibles", 0);
-                    int anclajesLibres = attributes.optInt("anclajes_libres", 0);
-                    int anclajesTotales = attributes.optInt("numero_anclajes", 0);
+                    if (i == 0) {
+                        System.out.println("ESTACION COMPLETA: " + estacion.toString(2));
+                    }
+                    
+                    String direccion = attributes.optString("address", "Sin dirección");
+                    int bicicletasDisponibles = attributes.optInt("available", 0);
+                    int anclajesLibres = attributes.optInt("free", 0);
+                    int anclajesTotales = attributes.optInt("total", 0);
                     double x = geometry.optDouble("x", 0.0);
                     double y = geometry.optDouble("y", 0.0);
 
@@ -76,3 +81,4 @@ public class ValenbisiAPI26T1v2_1 {
         }
     }
 }
+
