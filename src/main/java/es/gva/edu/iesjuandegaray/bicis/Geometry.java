@@ -4,7 +4,3 @@ public class Geometry {
 	public double x;
     public double y;
 }
-
-
-
-
